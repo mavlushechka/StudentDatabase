@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Mavlushechka">
+    <title>OTM bilan bog'liq ma'lumotlar</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/form-validation.css}" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container">
+    <main>
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="../../static/img/education.png" th:src="@{/img/education.png}" alt="Logo" width="90" height="90">
+            <h2>OTM bilan bog'liq ma'lumotlar</h2>
+        </div>
+        <div class="row g-5">
+            <div class="col-md-7 col-lg-8 mx-auto">
+                <form class="needs-validation" method="post" th:action="@{/information/educational-system/save}" novalidate>
+                    <div class="row g-3">
+                        <div class="col-sm-12">
+                            <label for="exists" class="form-label">Mavjud (talabalar safidan chiqarilmagan)</label>
+                            <select class="form-control" id="exists" name="exists" th:value="${educationalSystem?.exists}">
+                                <option value="true">Mavjud</option>
+                                <option value="false">Mavjud emas</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="number" class="form-label">Reyting daftarchasi raqami</label>
+                            <input type="number" class="form-control" id="number" name="number" min="1" th:value="${educationalSystem?.number}" required>
+                            <div class="invalid-feedback">
+                                Reyting daftarchasi raqamini kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="degree" class="form-label">Ta'lim bosqichi</label>
+                            <select class="form-control" id="degree" name="degree" th:value="${educationalSystem?.degree}">
+                                <option value="Bachelor">Bakalavr</option>
+                                <option value="Magistracy">Magistratura</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="course" class="form-label">Kurs</label>
+                            <input type="number" class="form-control" id="course" name="course" min="1" max="4" th:value="${educationalSystem?.course}" required>
+                            <div class="invalid-feedback">
+                                Kursni kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="formOfLearning" class="form-label">Ta'lim shakli</label>
+                            <select class="form-control" id="formOfLearning" name="formOfLearning" th:value="${educationalSystem?.formOfLearning}">
+                                <option value="Full time">Kunduzgi</option>
+                                <option value="Extramural">Sirtqi</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="language" class="form-label">Ta'lim tili</label>
+                            <select class="form-control" id="language" name="language" th:value="${educationalSystem?.language}">
+                                <option value="Uzbek">O'zbek</option>
+                                <option value="Russian">Rus</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="year" class="form-label">OTMga kirgan yili</label>
+                            <input type="number" class="form-control" id="year" name="year" min="1900" max="2021" th:value="${educationalSystem?.year}" required>
+                            <div class="invalid-feedback">
+                                OTMga kirgan yilingizni kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="faculty" class="form-label">Fakultet</label>
+                            <input type="text" class="form-control" id="faculty" name="faculty" th:value="${educationalSystem?.faculty}" required>
+                            <div class="invalid-feedback">
+                                Fakultetni kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="directionCode" class="form-label">Yo'nalish kodi</label>
+                            <input type="number" class="form-control" id="directionCode" name="directionCode" min="0" th:value="${educationalSystem?.directionCode}" required>
+                            <div class="invalid-feedback">
+                                Yo'nalish kodini kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="directionName" class="form-label">Yo'nalish nomi</label>
+                            <input type="text" class="form-control" id="directionName" name="directionName" th:value="${educationalSystem?.directionName}" required>
+                            <div class="invalid-feedback">
+                                Yo'nalish nomini kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="group" class="form-label">Guruh</label>
+                            <input type="text" class="form-control" id="group" name="group" th:value="${educationalSystem?.group}" required>
+                            <div class="invalid-feedback">
+                                Guruhni kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="formOfEducation" class="form-label">O'qish shakli</label>
+                            <select class="form-control" id="formOfEducation" name="formOfEducation" th:value="${educationalSystem?.formOfEducation}">
+                                <option value="Full time">Kunduzgi</option>
+                                <option value="Extramural">Sirtqi</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="privilege" class="form-label">Imtiyoz turi (Imtiyoz bilan kirgan bo'lsa)</label>
+                            <input type="text" class="form-control" id="privilege" name="privilege" th:value="${educationalSystem?.privilege}">
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="typeOfPlace" class="form-label">Hozirda yashish joyi turi</label>
+                            <select class="form-control" id="typeOfPlace" name="typeOfPlace" th:value="${educationalSystem?.typeOfPlace}">
+                                <option value="Home">O'z uyidan</option>
+                                <option value="Apartment">Kvartira</option>
+                                <option value="TTJ">TTJ</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="region" class="form-label">Viloyat</label>
+                            <input type="text" class="form-control" id="region" name="region" th:value="${educationalSystem?.region}" required>
+                            <div class="invalid-feedback">
+                                Viloyatni kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="city" class="form-label">Shahar / Tuman</label>
+                            <input type="text" class="form-control" id="city" name="city" th:value="${educationalSystem?.city}" required>
+                            <div class="invalid-feedback">
+                                Shahar yoki tumani kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="address" class="form-label">Manzil (qishloq, mahalla, ko'cha, uy)</label>
+                            <input type="text" class="form-control" id="address" name="address" th:value="${educationalSystem?.address}" required>
+                            <div class="invalid-feedback">
+                                Manzilni kiriting.
+                            </div>
+                        </div>
+                    </div>
+                    <div hidden>
+                        <input type="text" id="id" name="id" th:value="${user.id}" required>
+                    </div>
+                    <button class="w-100 btn btn-primary btn-lg mt-5 mb-5" type="submit">Yuborish</button>
+                </form>
+                <div class="mt-3 invalid-feedback" th:if="${#messages}">
+                    <span th:text="${#messages}"></span>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/form-validation.js}"></script>
+</body>
+</html>

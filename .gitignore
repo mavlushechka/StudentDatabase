@@ -1,0 +1,20 @@
+### Java ###
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### Gradle ###
+.gradle
+!gradle/wrapper/gradle-wrapper.jar
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### Properties ###
+src/main/resources/application.properties

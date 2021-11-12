@@ -1,0 +1,44 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Mavlushechka">
+  <title>Kirish</title>
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{/css/login.css}" rel="stylesheet">
+</head>
+<body class="text-center">
+  <main class="form-signin">
+    <form th:action="@{/authentication/login}" method="post">
+      <img class="mb-4" src="../../static/img/student.png" th:src="@{/img/student.png}" alt="Logo" width="90" height="90">
+
+      <h1 class="h3 mb-3 fw-normal">Kirish</h1>
+
+      <div class="alert-danger" th:if="${param.error}">
+        Login yoki parol noto'g'ri.
+      </div>
+      <div class="alert alert-warning" th:if="${param.logout}">
+        Siz tizimdan chiqdingiz.
+      </div>
+
+      <div class="form-floating">
+        <input type="text" class="form-control" id="floatingInput" name="username" placeholder="Login" required>
+        <label for="floatingInput">Login</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Parol" required>
+        <label for="floatingPassword">Parol</label>
+      </div>
+
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Eslab qolish
+        </label>
+      </div>
+
+      <button class="mb-3 w-100 btn btn-lg btn-primary" type="submit">Kirish</button>
+    </form>
+  </main>
+</body>
+</html>

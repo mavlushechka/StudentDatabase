@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Mavlushechka">
+    <title>Oilaviy ma'lumotlar</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/form-validation.css}" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container">
+    <main>
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="../../static/img/family.png" th:src="@{/img/family.png}" alt="Logo" width="90" height="90">
+            <h2>Oilaviy ma'lumotlar</h2>
+        </div>
+        <div class="row g-5">
+            <div class="col-md-7 col-lg-8 mx-auto">
+                <form class="needs-validation" method="post" th:action="@{/information/family/save}" novalidate>
+                    <div class="row g-3">
+                        <div class="col-sm-12">
+                            <label for="isMarried" class="form-label">Oilaviy ahvolingiz</label>
+                            <select class="form-control" id="isMarried" name="isMarried" required>
+                                <option value="false">Uylanmaganman / Turmushga chiqmaganman</option>
+                                <option value="true">Uylanganman / Turmushga chiqqanman</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="parentsDivorced" class="form-label">Otangiz-onangizdan ajralganmi?</label>
+                            <select class="form-control" id="parentsDivorced" name="parentsDivorced" required>
+                                <option value="No">Yo'q</option>
+                                <option value="Father">Otamdan</option>
+                                <option value="Mother">Onamdan</option>
+                                <option value="Both">Ikkalasidan</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="father.lastName" class="form-label">Otangizning familiyasi</label>
+                            <input type="text" class="form-control" id="father.lastName" name="father.lastName" th:value="${family?.father?.lastName}" required>
+                            <div class="invalid-feedback">
+                                Otangizning familiyasini kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="father.firstName" class="form-label">Otangizning ismi</label>
+                            <input type="text" class="form-control" id="father.firstName" name="father.firstName" th:value="${family?.father?.firstName}" required>
+                            <div class="invalid-feedback">
+                                Otangizning ismini kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="father.middleName" class="form-label">Otangizning sharifi</label>
+                            <input type="text" class="form-control" id="father.middleName" name="father.middleName" th:value="${family?.father?.middleName}" required>
+                            <div class="invalid-feedback">
+                                Otangizning sharifini kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="father.birthday" class="form-label">Otangizning tug'ilgan yili</label>
+                            <input type="number" class="form-control" id="father.birthday" name="father.birthday" th:value="${family?.father?.birthday}" min="1900" max="2021" required>
+                            <div class="invalid-feedback">
+                                Otangizning tug'ilgan yilini kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="father.placeOfWork" class="form-label">Otangizning ish joyi</label>
+                            <input type="text" class="form-control" id="father.placeOfWork" name="father.placeOfWork" th:value="${family?.father?.placeOfWork}" required>
+                            <div class="invalid-feedback">
+                                Otangizning ish joyini kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="father.telephoneNumber" class="form-label">Otangizning telefon raqami</label>
+                            <input type="number" class="form-control" id="father.telephoneNumber" name="father.telephoneNumber" th:value="${family?.father?.telephoneNumber}" min="0" required>
+                            <div class="invalid-feedback">
+                                Otangizning telefon raqamini kiriting.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <label for="mother.lastName" class="form-label">Onangizning familiyasi</label>
+                            <input type="text" class="form-control" id="mother.lastName" name="mother.lastName" th:value="${family?.mother?.lastName}" required>
+                            <div class="invalid-feedback">
+                                Onangizning familiyasini kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="mother.firstName" class="form-label">Onangizning ismi</label>
+                            <input type="text" class="form-control" id="mother.firstName" name="mother.firstName" th:value="${family?.mother?.firstName}" required>
+                            <div class="invalid-feedback">
+                                Onangizning ismini kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="mother.middleName" class="form-label">Onangizning sharifi</label>
+                            <input type="text" class="form-control" id="mother.middleName" name="mother.middleName" th:value="${family?.mother?.middleName}" required>
+                            <div class="invalid-feedback">
+                                Onangizning sharifini kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="mother.birthday" class="form-label">Onangizning tug'ilgan yili</label>
+                            <input type="number" class="form-control" id="mother.birthday" name="mother.birthday" th:value="${family?.mother?.birthday}" min="1900" max="2021" required>
+                            <div class="invalid-feedback">
+                                Onangizning tug'ilgan yilini kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="mother.placeOfWork" class="form-label">Onangizning ish joyi</label>
+                            <input type="text" class="form-control" id="mother.placeOfWork" name="mother.placeOfWork" th:value="${family?.mother?.placeOfWork}" required>
+                            <div class="invalid-feedback">
+                                Onangizning ish joyini kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="mother.telephoneNumber" class="form-label">Onangizning telefon raqami</label>
+                            <input type="number" class="form-control" id="mother.telephoneNumber" name="mother.telephoneNumber" th:value="${family?.mother?.telephoneNumber}" min="0" required>
+                            <div class="invalid-feedback">
+                                Onangizning telefon raqamini kiriting.
+                            </div>
+                        </div>
+                    </div>
+                    <div hidden>
+                        <input type="text" id="id" name="id" th:value="${user.id}" required>
+                    </div>
+                    <button class="w-100 btn btn-primary btn-lg mt-5 mb-5" type="submit">Yuborish</button>
+                </form>
+                <div class="mt-3 invalid-feedback" th:if="${#messages}">
+                    <span th:text="${#messages}"></span>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/form-validation.js}"></script>
+</body>
+</html>

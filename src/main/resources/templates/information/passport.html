@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Mavlushechka">
+    <title>Pasport ma'lumotlar</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/form-validation.css}" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container">
+    <main>
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="../../static/img/passport.png" th:src="@{/img/passport.png}" alt="Logo" width="90" height="90">
+            <h2>Pasport ma'lumotlar</h2>
+        </div>
+        <div class="row g-5">
+            <div class="col-md-7 col-lg-8 mx-auto">
+                <form class="needs-validation" method="post" th:action="@{/information/passport/save}" novalidate>
+                    <div class="row g-3">
+                        <div class="col-sm-4">
+                            <label for="firstName" class="form-label">Ism</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName" th:value="${passport?.firstName}" required>
+                            <div class="invalid-feedback">
+                                Ismingizni kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="lastName" class="form-label">Familiya</label>
+                            <input type="text" class="form-control" id="lastName" name="lastName" th:value="${passport?.lastName}" required>
+                            <div class="invalid-feedback">
+                                Familiyangizni kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="middleName" class="form-label">Sharif</label>
+                            <input type="text" class="form-control" id="middleName" name="middleName" th:value="${passport?.middleName}" required>
+                            <div class="invalid-feedback">
+                                Sharifingizni kirirting.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="PINFL" class="form-label">PINFL</label>
+                            <input type="number" class="form-control" id="PINFL" name="PINFL" min="0" th:value="${passport?.PINFL}" required>
+                            <div class="invalid-feedback">
+                                PNFL kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="INN" class="form-label">INN</label>
+                            <input type="number" class="form-control" id="INN" name="INN" min="0" th:value="${passport?.INN}" required>
+                            <div class="invalid-feedback">
+                                INN kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="serialNumber" class="form-label">Pasport seriyasi</label>
+                            <input type="text" class="form-control" id="serialNumber" name="serialNumber" th:value="${passport?.serialNumber}" required>
+                            <div class="invalid-feedback">
+                                Pasport seriyasini kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="number" class="form-label">Pasport raqami</label>
+                            <input type="number" class="form-control" id="number" name="number" min="0" th:value="${passport?.number}" required>
+                            <div class="invalid-feedback">
+                                Pasport seriyasini kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="dateOfIssue" class="form-label">Berilgan sanasi</label>
+                            <input type="date" class="form-control" id="dateOfIssue" name="dateOfIssue" th:value="${passport?.dateOfIssue}" required>
+                            <div class="invalid-feedback">
+                                Berilgan sanasini kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="birthday" class="form-label">Tug'ilgan sana</label>
+                            <input type="date" class="form-control" id="birthday" name="birthday" max="2006-01-01" th:value="${passport?.birthday}" required>
+                            <div class="invalid-feedback">
+                                Tug'ilgan sanani kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="age" class="form-label">Yosh</label>
+                            <input type="number" class="form-control" id="age" name="age" min="16" th:value="${passport?.age}" required>
+                            <div class="invalid-feedback">
+                                Yoshingizni kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="nationality" class="form-label">Millat</label>
+                            <input type="text" class="form-control" id="nationality" name="nationality" th:value="${passport?.nationality}" required>
+                            <div class="invalid-feedback">
+                                Millatingizni kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="gender" class="form-label">Jins</label>
+                            <select class="form-control" id="gender" name="gender" th:value="${passport?.gender}">
+                                <option value="Male">Erkak</option>
+                                <option value="Female">Ayol</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="republic" class="form-label">Respublika (fuqaroligi)</label>
+                            <input type="text" class="form-control" id="republic" name="republic" th:value="${passport?.republic}" required>
+                            <div class="invalid-feedback">
+                                Respublilkani kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="region" class="form-label">Viloyat</label>
+                            <input type="text" class="form-control" id="region" name="region" th:value="${passport?.region}" required>
+                            <div class="invalid-feedback">
+                                Viloyatni kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="city" class="form-label">Tuman / Shahar</label>
+                            <input type="text" class="form-control" id="city" name="city" th:value="${passport?.city}" required>
+                            <div class="invalid-feedback">
+                                Tuman yoki shaharni kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="organization" class="form-label">Pasport bergan tashkilot</label>
+                            <input type="text" class="form-control" id="organization" name="organization" th:value="${passport?.organization}" required>
+                            <div class="invalid-feedback">
+                                Pasport bergan tashkilotni kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="village" class="form-label">Qishloq</label>
+                            <input type="text" class="form-control" id="village" name="village" th:value="${passport?.village}" required>
+                            <div class="invalid-feedback">
+                                Qishloqni kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="district" class="form-label">Mahalla</label>
+                            <input type="text" class="form-control" id="district" name="district" th:value="${passport?.district}" required>
+                            <div class="invalid-feedback">
+                                Mahallani kiriting.
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="address" class="form-label">Ko'cha nomi va uy raqami</label>
+                            <input type="text" class="form-control" id="address" name="address" th:value="${passport?.address}" required>
+                            <div class="invalid-feedback">
+                                Ko'cha nomi va uy raqamini kiriting.
+                            </div>
+                        </div>
+                        <div hidden>
+                            <input type="text" id="id" name="id" th:value="${user.id}" required>
+                        </div>
+                    </div>
+                    <button class="w-100 btn btn-primary btn-lg mt-5 mb-5" type="submit">Yuborish</button>
+                </form>
+                <div class="mt-3 invalid-feedback" th:if="${#messages}">
+                    <span th:text="${#messages}"></span>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/form-validation.js}"></script>
+</body>
+</html>

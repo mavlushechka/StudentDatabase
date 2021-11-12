@@ -1,0 +1,71 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Mavlushechka">
+  <title>Student Database</title>
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <span class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <img src="../static/img/logo.png" th:src="@{/img/logo.png}" class="m-2" alt="Logo.png" width="36" height="36">
+        <span class="fs-4">Student Database</span>
+      </span>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a th:href="@{/authentication/login}" th:text="${loginButtonText}" class="nav-link">Kirish</a>
+        </li>
+      </ul>
+    </header>
+  </div>
+
+  <main class="container">
+    <div class="alert alert-warning" th:if="${authorized}">
+      <strong>Diqqat!</strong> Standart <a th:href="@{/authentication/change-password}" class="alert-link">parolni o'zgartirish</a> tavsiya etiladi.
+    </div>
+    <div class="bg-light p-5 mb-5 rounded">
+      <h1>Talaba haqida ma'lumotlar</h1>
+      <p class="lead">Shaxsiy telefon raqami, erishgan yutuqlari (agar diplomga ega bo'lsa), diniy qarashi, shaxsiy avtomashinasi (o`zining nomiga rasmiylashtirilgan bo`lsa), shaxsiy uyi (o`zining nomiga rasmiylashtirilgan bo`lsa), rasmi (3x4).</p>
+      <a class="btn btn-lg btn-primary" th:href="@{/information/student}" role="button">Toldirish &raquo;</a>
+    </div>
+    <div class="bg-light p-5 mb-5 rounded">
+      <h1>OTM bilan bog'liq ma'lumotlar</h1>
+      <p class="lead">Mavjud (talabalar safidan chiqarilmagan), reyting daftarchasi raqami, ta'lim bosqichi, kurs, ta'lim shakli, ta'lim tili, OTMga kirgan yili, fakultet, yo'nalish kodi, yo'nalish nomi, guruh, o'qish shakli, imtiyoz turi (Imtiyoz bilan kirgan bo'lsa), hozirda yashish joyi turi, viloyat, shahar / tuman, manzil (qishloq, mahalla, ko'cha, uy).</p>
+      <a class="btn btn-lg btn-primary" th:href="@{/information/educational-system}" role="button">Toldirish &raquo;</a>
+    </div>
+    <div class="bg-light p-5 mb-5 rounded">
+      <h1>Pasport ma'lumotlar</h1>
+      <p class="lead">Ism, familiya, sharif, PINFL, INN, seriyasi, raqami, berilgan sanasi, tug'ilgan sana, yosh, millat, jins, respublika (fuqaroligi), viloyat, tuman / shahar, bergan tashkilot, qishloq, mahalla, kocha nomi va uy raqami.</p>
+      <a class="btn btn-lg btn-primary" th:href="@{/information/passport}" role="button">Toldirish &raquo;</a>
+    </div>
+    <div class="bg-light p-5 mb-5 rounded">
+      <h1>Tugatgan o'quv muassasi haqida ma'lumotlar</h1>
+      <p class="lead">Nomi, turi, xududi, hujjat seriyasi, hujjat raqami, hujjat berilgan vaqti.</p>
+      <a class="btn btn-lg btn-primary" th:href="@{/information/graduated-institution}" role="button">Toldirish &raquo;</a>
+    </div>
+    <div class="bg-light p-5 mb-5 rounded">
+      <h1>Oilaviy ma'lumotlar</h1>
+      <p class="lead">Talabaning oilaviy ahvoli, otasi-onansidan ajralganmi, otasini familiyasi, otasini ismi, otasini sharifi, otasini tug'ilgan yili, otasini ish joyi, otasini telefon raqami, onasini familiyasi, onasini ismi, onasini sharifi, onasini tug'ilgan yili, onasini ish joyi, onasini telefon raqami.</p>
+      <a class="btn btn-lg btn-primary" th:href="@{/information/family}" role="button">Toldirish &raquo;</a>
+    </div>
+    <div class="bg-light p-5 mb-5 rounded">
+      <h1>Sog'liq haqida ma'lumotlar</h1>
+      <p class="lead">Nogironligi, nogironlik guruh, nogironlik bo'yicha tashxis.</p>
+      <a class="btn btn-lg btn-primary" th:href="@{/information/health}" role="button">Toldirish &raquo;</a>
+    </div>
+    <div class="bg-light p-5 mb-5 rounded">
+      <h1>Ish joyi haqida ma'lumotlar</h1>
+      <p class="lead">Nomi, xududi, telefon nomeri, rahbarni ismi, rahbarni familiyasi, rahbarni sharifi.</p>
+      <a class="btn btn-lg btn-primary" th:href="@{/information/job}" role="button">Toldirish &raquo;</a>
+    </div>
+    <div class="bg-light p-5 mb-5 rounded">
+      <h1>Harbiy xizmatni o'tash holati haqida ma'lumotlar</h1>
+      <p class="lead">Turi, o'tagan joyi, o'tagan yili, guvohnoma raqami, guvohnoma seriyasi, muqobil harbiy xizmat tavsiyanomaning mavjudligi.</p>
+      <a class="btn btn-lg btn-primary" th:href="@{/information/military-service}" role="button">Toldirish &raquo;</a>
+    </div>
+  </main>
+</body>
+</html>

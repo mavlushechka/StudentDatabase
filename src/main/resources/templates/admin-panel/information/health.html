@@ -1,0 +1,245 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Admin Panel | Health</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+        ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/favicon.ico}">
+    <!-- Google Fonts
+        ============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <!-- Font Awesome
+        ============================================ -->
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" th:href="@{/css/normalize.css}">
+    <!-- meanmenu icon CSS
+        ============================================ -->
+    <link rel="stylesheet" th:href="@{/css/meanmenu.min.css}">
+    <!-- metisMenu CSS
+        ============================================ -->
+    <link rel="stylesheet" th:href="@{/css/metisMenu/metisMenu.min.css}">
+    <link rel="stylesheet" th:href="@{/css/metisMenu/metisMenu-vertical.css}">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" th:href="@{/css/responsive.css}">
+</head>
+
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<!-- Start Left menu area -->
+<div class="left-sidebar-pro">
+    <nav id="sidebar" class="">
+        <div class="sidebar-header">
+            <img class="main-logo" src="../../../static/img/logo/logo.png" th:src="@{/img/logo/logo.png}" alt="" />
+            <strong><img src="../../../static/img/logo/logosn.png" th:src="@{/img/logo/logosn.png}" alt="" /></strong>
+        </div>
+        <div class="left-custom-menu-adp-wrap comment-scrollbar">
+            <nav class="sidebar-nav left-sidebar-menu-pro">
+                <ul class="metismenu" id="menu1">
+                    <li>
+                        <a class="has-arrow" th:href="@{/}" aria-expanded="false">
+                            <span class="educate-icon educate-student icon-wrap"></span>
+                            <span class="mini-click-non">Users</span>
+                        </a>
+                        <ul class="submenu-angle" aria-expanded="false">
+                            <li><a title="All users" th:href="@{/admin-panel/all-users}"><span class="mini-sub-pro">All users</span></a></li>
+                            <li><a title="Add users" th:href="@{/admin-panel/add-users}"><span class="mini-sub-pro">Add users</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a class="has-arrow" href="#" aria-expanded="true"> <span class="mini-click-non">Information</span></a>
+                        <ul class="submenu-angle collapse show" aria-expanded="false">
+                            <li><a title="Search" th:href="@{/admin-panel/information/search}"><span class="mini-sub-pro">Search</span></a></li>
+                            <li><a title="Students" th:href="@{/admin-panel/information/students}"><span class="mini-sub-pro">Students</span></a></li>
+                            <li><a title="Educational systems" th:href="@{/admin-panel/information/educational-systems}"><span class="mini-sub-pro">Educational systems</span></a></li>
+                            <li><a title="Passports" th:href="@{/admin-panel/information/passports}"><span class="mini-sub-pro">Passports</span></a></li>
+                            <li><a title="Graduated institutions" th:href="@{/admin-panel/information/graduated-institutions}"><span class="mini-sub-pro">Graduated institutions</span></a></li>
+                            <li><a title="Families" th:href="@{/admin-panel/information/families}"><span class="mini-sub-pro">Families</span></a></li>
+                            <li><a title="Health" th:href="@{/admin-panel/information/health}"><span class="mini-sub-pro">Health</span></a></li>
+                            <li><a title="Jobs" th:href="@{/admin-panel/information/jobs}"><span class="mini-sub-pro">Jobs</span></a></li>
+                            <li><a title="Military services" th:href="@{/admin-panel/information/military-services}"><span class="mini-sub-pro">Military services</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="#" aria-expanded="false"> <span class="mini-click-non">Pages</span></a>
+                        <ul class="submenu-angle page-mini-nb-dp collapse" aria-expanded="false" style="height: 0;">
+                            <li><a title="Login" th:href="@{/authentication/login}"><span class="mini-sub-pro">Login</span></a></li>
+                            <li><a title="Logout" th:href="@{/logout}"><span class="mini-sub-pro">Logout</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+</div>
+<!-- End Left menu area -->
+<!-- Start Welcome area -->
+<div class="all-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="logo-pro">
+                    <img class="main-logo" src="../../../static/img/logo/logo.png" th:src="@{/img/logo/logo.png}" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-advance-area">
+        <div class="header-top-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="header-top-wraper">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                    <div class="menu-switcher-pro">
+                                        <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn p-3">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu start -->
+        <div class="mobile-menu-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="mobile-menu">
+                            <nav id="dropdown">
+                                <ul class="mobile-menu-nav">
+                                    <li><a data-toggle="collapse" data-target="#demopro" href="#">Users <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                        <ul id="demopro" class="collapse dropdown-header-top">
+                                            <li><a th:href="@{/admin-panel/all-users}">All users</a>
+                                            </li>
+                                            <li><a th:href="@{/admin-panel/add-users}">Add users</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a data-toggle="collapse" data-target="#information" href="#">Information <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                        <ul id="information" class="collapse dropdown-header-top">
+                                            <li>
+                                                <a th:href="@{/admin-panel/information/search}">Search</a>
+                                            </li>
+                                            <li>
+                                                <a th:href="@{/admin-panel/information/students}">Students</a>
+                                            </li>
+                                            <li>
+                                                <a th:href="@{/admin-panel/information/educational-systems}">Educational systems</a>
+                                            </li>
+                                            <li>
+                                                <a th:href="@{/admin-panel/information/passports}">Passports</a>
+                                            </li>
+                                            <li>
+                                                <a th:href="@{/admin-panel/information/graduated-institutions}">Graduated institutions</a>
+                                            </li>
+                                            <li>
+                                                <a th:href="@{/admin-panel/information/graduated-institutions}">Families</a>
+                                            </li>
+                                            <li>
+                                                <a th:href="@{/admin-panel/information/health}">Health</a>
+                                            </li>
+                                            <li>
+                                                <a th:href="@{/admin-panel/information/jobs}">Jobs</a>
+                                            </li>
+                                            <li>
+                                                <a th:href="@{/admin-panel/information/military-services}">Jobs</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a data-toggle="collapse" data-target="#pages" href="#">Pages <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                        <ul id="pages" class="collapse dropdown-header-top">
+                                            <li>
+                                                <a th:href="@{/templates/authentication/login.html}">Login</a>
+                                            </li>
+                                            <li>
+                                                <a th:href="@{/logout}">Register</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu end -->
+        <div class="breadcome-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="breadcome-list single-page-breadcome">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <ul class="breadcome-menu">
+                                        <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                        </li>
+                                        <li><span class="bread-blod">Health</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-status mg-b-15">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="product-status-wrap">
+                        <h4>Health</h4>
+                        <div class="asset-inner">
+                            <table>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Invalid</th>
+                                    <th>Invalid group</th>
+                                    <th>Invalid diagnosis</th>
+                                </tr>
+                                <tr th:each="health: ${health}">
+                                    <td th:text="${health.id}"></td>
+                                    <td th:text="${health.invalid}"></td>
+                                    <td th:text="${health.invalidGroup}"></td>
+                                    <td th:text="${health.invalidDiagnosis}"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jquery
+    ============================================ -->
+<script th:src="@{/js/vendor/jquery-1.12.4.min.js}"></script>
+<!-- metisMenu JS
+    ============================================ -->
+<script th:src="@{/js/metisMenu/metisMenu.min.js}"></script>
+<script th:src="@{/js/metisMenu/metisMenu-active.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Mavlushechka">
+  <title>Harbiy xizmatni o'tash holati haqida ma'lumotlar</title>
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{/css/form-validation.css}" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="../../static/img/military.png" th:src="@{/img/military.png}" alt="Logo" width="90" height="90">
+      <h2>Harbiy xizmatni o'tash holati haqida ma'lumotlar</h2>
+    </div>
+    <div class="row g-5">
+      <div class="col-md-7 col-lg-8 mx-auto">
+        <form class="needs-validation" method="post" th:action="@{/information/military-service/save}" novalidate>
+          <div class="row g-3">
+            <div class="col-sm-12">
+              <label for="type" class="form-label">Turi</label>
+              <select class="form-control" id="type" name="type" th:value="${militaryService?.type}">
+                <option value="SCHR">SCHR</option>
+                <option value="Alternative">Muqobil</option>
+              </select>
+            </div>
+            <div class="col-sm-6">
+              <label for="place" class="form-label">O'tagan joyi</label>
+              <input type="text" class="form-control" id="place" name="place" th:value="${militaryService?.place}" required>
+              <div class="invalid-feedback">
+                O'tagan joyini kiriting.
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label for="year" class="form-label">O'tagan yili</label>
+              <input type="number" class="form-control" id="year" name="year" min="1900" max="2021" th:value="${militaryService?.year}" required>
+              <div class="invalid-feedback">
+                O'tagan yilni kiriting.
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label for="number" class="form-label">Guvohnoma raqami</label>
+              <input type="number" class="form-control" id="number" name="number" th:value="${militaryService?.number}" required>
+              <div class="invalid-feedback">
+                Guvohnoma raqamini kiriting.
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label for="serialNumber" class="form-label">Guvohnoma seriyasi</label>
+              <input type="number" class="form-control" id="serialNumber" name="serialNumber" th:value="${militaryService?.serialNumber}" required>
+              <div class="invalid-feedback">
+                Guvohnoma seriyasini kiriting.
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <label for="alternative" class="form-label">Muqobil harbiy xizmat tavsiyanomaning mavjudligi</label>
+              <select class="form-control" id="alternative" name="alternative" th:value="${militaryService?.alternative}">
+                <option value="true">Mavjud</option>
+                <option value="false">Mavjud emas</option>
+              </select>
+            </div>
+          </div>
+          <div hidden>
+            <input type="text" id="id" name="id" th:value="${user.id}" required>
+          </div>
+          <button class="w-100 btn btn-primary btn-lg mt-5 mb-5" type="submit">Yuborish</button>
+        </form>
+        <div class="mt-3 invalid-feedback" th:if="${#messages}">
+          <span th:text="${#messages}"></span>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/form-validation.js}"></script>
+</body>
+</html>
