@@ -17,17 +17,17 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    private void saveRole(String role) {
-        if (roleRepository.findByRole(role) == null) {
-            roleRepository.save(new Role(role));
-        }
-    }
-
     @Bean
     CommandLineRunner init() {
         return args -> {
             saveRole("ADMIN");
             saveRole("USER");
         };
+    }
+
+    private void saveRole(String role) {
+        if (roleRepository.findByRole(role) == null) {
+            roleRepository.save(new Role(role));
+        }
     }
 }
